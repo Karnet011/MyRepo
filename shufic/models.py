@@ -16,7 +16,7 @@ class Video(models.Model):
 class Comment(models.Model):
     class Meta():
         db_table = "Comment"
-    Comment_text = models.TextField()
+    Comment_text = models.TextField(verbose_name="Комментарий")
     Comment_Video = models.ForeignKey(Video, True)
 
     def __str__(self):
