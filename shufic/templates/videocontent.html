@@ -1,0 +1,18 @@
+
+{% extends 'main.html' %}
+{% block videocontent %}
+{% load staticfiles %}
+{% for vid in Video %}
+
+
+<iframe width="1110" height="600" src={{vid.Video_url}} frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<h1><p class="bg-dark text-white nav-link"><a href="onevideo/{{ vid.id }}">{{ vid.Video_name }}</a></p></h1>
+<h2><p class="bg-dark text-white">{{ vid.Video_o }}</p></h2>
+
+<h6><p class=" text-white">Дата добавления: {{ vid.Video_data }}</p></h6>
+<h4> <a href="/video/Vaddlikes/{{ vid.id }}"> <img src="{% static 'like.jpg' %}" width = "100px" height="60px">  {{ vid.Video_likes }}</a></h4>
+    {% for com in vid.comments %}
+<h4><p class=" text-danger">{{ com }}</p></h4>
+    {% endfor %}
+{% endfor %}
+{% endblock %}

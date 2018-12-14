@@ -1,0 +1,56 @@
+
+{% extends 'main.html' %}
+{% load staticfiles %}
+{% block book %}
+<head>
+    <title>
+     Книги
+    </title>
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+
+
+    {% for book in books %}
+
+
+
+
+  <!-- Brand/logo -->
+  <a class="conteiner" style="float:left" >
+    <img src="{{ book.img.url }}"  class="rounded" alt="Cinque Terre" width="200" height="300"">
+  </a>
+    <div class="container">
+
+        <h1><p class="text-muted">{{ book.name }}</p></h1></div>
+
+   <div class="container-fluid">
+       <div class="row">
+
+    <div class="col" style="background-color:lavender;">{{ book.dec }}</div>
+
+  </div>
+</div>
+    {% if book.downl and book.downl.url %}
+    <li class="nav-item">
+        <a class="nav-link" href="{{ book.downl.url }}" download><h3>Скачать</h3></a>
+    </li>
+    {% endif %}
+
+{% endfor %}
+{% endblock %}
+
+
+
+
+
+
+
+{
+
